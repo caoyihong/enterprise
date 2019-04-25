@@ -102,7 +102,7 @@
 				<th style="text-align: right;">职位要求：</th>
 				<td style="text-align: left;" colspan="3">
 					<textarea name="requirements" style="width:100%;height:400px;visibility:hidden;" id="requirements"
-					data-rule="内容:required;requirements;">${e.requirements}</textarea>
+					data-rule="内容:required;"></textarea>
 				</td>
 			</tr>
 	<tr>

@@ -138,9 +138,7 @@
 
     <!-- kindeditor富文本编辑器 -->
     <link rel="stylesheet" href="<%=path %>/resource/kindeditor/themes/default/default.css"/>
-    <script charset="utf-8" src="<%=path %>/resource/kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="<%=path %>/resource/kindeditor/kindeditor-all.js"></script>
     <script charset="utf-8" src="<%=path %>/resource/kindeditor/lang/zh-CN.js"></script>
-
-
 
 </head>

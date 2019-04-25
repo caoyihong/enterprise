@@ -7,22 +7,22 @@
 * @licence http://www.kindsoft.net/license.php
 *******************************************************************************/
 
-KindEditor.plugin('media', function(K) {
-	var self = this, name = 'media', lang = self.lang(name + '.'),
+KindEditor.plugin('video', function(K) {
+	var self = this, name = 'video', lang = self.lang(name + '.'),
 		allowMediaUpload = K.undef(self.allowMediaUpload, true),
 		allowFileManager = K.undef(self.allowFileManager, false),
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
 		extraParams = K.undef(self.extraFileUploadParams, {}),
 		filePostName = K.undef(self.filePostName, 'imgFile'),
 		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php');
-	self.plugin.media = {
+	self.plugin.video = {
 		edit : function() {
 			var html = [
 				'<div style="padding:20px;">',
 				//url
 				'<div class="ke-dialog-row">',
 				'<label for="keUrl" style="width:60px;">' + lang.url + '</label>',
-				'<input class="ke-input-text" type="text" id="keUrl" name="url" value="" style="width:160px;" /> &nbsp;',
+				'<input class="ke-input-text" type="text" id="keUrl" name="url" value="" style="width:400px;" /> &nbsp;',
 				'<input type="button" class="ke-upload-button" value="' + lang.upload + '" /> &nbsp;',
 				'<span class="ke-button-common ke-button-outer">',
 				'<input type="button" class="ke-button-common ke-button" name="viewServer" value="' + lang.viewServer + '" />',
@@ -31,12 +31,12 @@ KindEditor.plugin('media', function(K) {
 				//width
 				'<div class="ke-dialog-row">',
 				'<label for="keWidth" style="width:60px;">' + lang.width + '</label>',
-				'<input type="text" id="keWidth" class="ke-input-text ke-input-number" name="width" value="550" maxlength="4" />',
+				'<input type="text" id="keWidth" class="ke-input-text ke-input-number" name="width" value="250" maxlength="4" />',
 				'</div>',
 				//height
 				'<div class="ke-dialog-row">',
 				'<label for="keHeight" style="width:60px;">' + lang.height + '</label>',
-				'<input type="text" id="keHeight" class="ke-input-text ke-input-number" name="height" value="400" maxlength="4" />',
+				'<input type="text" id="keHeight" class="ke-input-text ke-input-number" name="height" value="50" maxlength="4" />',
 				'</div>',
 				//autostart
 				'<div class="ke-dialog-row">',
@@ -47,7 +47,7 @@ KindEditor.plugin('media', function(K) {
 			].join('');
 			var dialog = self.createDialog({
 				name : name,
-				width : 450,
+				width : 650,
 				height : 230,
 				title : self.lang(name),
 				body : html,
@@ -80,6 +80,7 @@ KindEditor.plugin('media', function(K) {
 								autostart : autostartBox[0].checked ? 'true' : 'false',
 								loop : 'true'
 							});
+						//console.log(html);
 						self.insertHtml(html).hideDialog().focus();
 					}
 				}
@@ -97,7 +98,7 @@ KindEditor.plugin('media', function(K) {
 					button : K('.ke-upload-button', div)[0],
 					fieldName : filePostName,
 					extraParams : extraParams,
-					url : K.addParam(uploadJson, 'dir=media'),
+					url : K.addParam(uploadJson, 'dir=video'),
 					afterUpload : function(data) {
 						dialog.hideLoading();
 						if (data.error === 0) {
@@ -132,7 +133,7 @@ KindEditor.plugin('media', function(K) {
 					self.loadPlugin('filemanager', function() {
 						self.plugin.filemanagerDialog({
 							viewType : 'LIST',
-							dirName : 'media',
+							dirName : 'video',
 							clickFn : function(url, title) {
 								if (self.dialogs.length > 1) {
 									K('[name="url"]', div).val(url);
@@ -149,7 +150,7 @@ KindEditor.plugin('media', function(K) {
 				viewServerBtn.hide();
 			}
 
-			var img = self.plugin.getSelectedMedia();
+			var img = self.plugin.getSelectedVideo();
 			if (img) {
 				var attrs = K.mediaAttrs(img.attr('data-ke-tag'));
 				urlBox.val(attrs.src);
@@ -161,10 +162,10 @@ KindEditor.plugin('media', function(K) {
 			urlBox[0].select();
 		},
 		'delete' : function() {
-			self.plugin.getSelectedMedia().remove();
+			self.plugin.getSelectedVideo().remove();
 			// [IE] 删除图片后立即点击图片按钮出错
 			self.addBookmark();
 		}
 	};
-	self.clickToolbar(name, self.plugin.media.edit);
+	self.clickToolbar(name, self.plugin.video.edit);
 });

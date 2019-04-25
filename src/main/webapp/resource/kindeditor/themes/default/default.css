@@ -818,20 +818,20 @@
 }
 /* inputbox */
 .ke-input-text {
-	background-color:#FFFFFF!important;
-	font-family: "sans serif",tahoma,verdana,helvetica!important;
-	font-size: 12px!important;
-	line-height: 17px!important;
-	height: 17px!important;
-	padding: 2px 4px!important;
-	border-color: #848484 #E0E0E0 #E0E0E0 #848484!important;
-	border-style: solid!important;
-	border-width: 1px!important;
-	display: -moz-inline-stack!important;
-	display: inline-block!important;
-	vertical-align: middle!important;
-	zoom: 1!important;
-	*display: inline!important;
+	background-color:#FFFFFF;
+	font-family: "sans serif",tahoma,verdana,helvetica;
+	font-size: 12px;
+	line-height: 17px;
+	height: 17px;
+	padding: 2px 4px;
+	border-color: #848484 #E0E0E0 #E0E0E0 #848484;
+	border-style: solid;
+	border-width: 1px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	*display: inline;
 }
 .ke-input-number {
 	width: 50px;
@@ -1145,3 +1145,9 @@
 	text-align: center;
 }
 
+.ke-icon-video {
+	background:url("../common/video_16.png") no-repeat;
+	/* background-position: 0px -496px; */
+    width: 16px;
+    height: 16px;
+}
