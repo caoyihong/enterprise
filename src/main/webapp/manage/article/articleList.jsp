@@ -41,8 +41,8 @@
         <table class="table table-bordered table-hover table-striped">
             <tr>
                 <th width="50"><input type="checkbox" id="firstCheckbox"/></th>
-                <th>文章名称</th>
-                <th width="200">文章分类</th>
+                <th>产品名称</th>
+                <th width="200">产品分类</th>
                 <th width="250">创建时间</th>
                 <th width="200">操作</th>
             </tr>
