@@ -40,7 +40,7 @@
     <div style="width: 201px;height: 107px;float: left;">
         <a href="index">
         <img src="<%=SystemManage.getInstance().getSystemSetting().getImageRootPath() %><%=SystemManage.getInstance().getSystemSetting().getLogo() %>"
-             width="201" height="107"/>
+             width="190" height="70"/>
             </a>
     </div>
     <div style="width: 768px;height: 107px;float: right;overflow: hidden">
@@ -49,16 +49,16 @@
                 <a href="<%=path%>/index">首 页</a>
             </li>
             <li>
-                <a href="<%=path%>/about">关于我们</a>
-            </li>
-            <li>
-                <a href="<%=path%>/service">服务领域</a>
+                <a href="<%=path%>/service">公司动态</a>
             </li>
             <li>
                 <a href="<%=path%>/article">产品介绍</a>
             </li>
-            <li>
+            <%--<li>
                 <a href="<%=path%>/recruitment">诚聘英才</a>
+            </li>--%>
+            <li>
+                <a href="<%=path%>/about">关于我们</a>
             </li>
             <li>
                 <a href="<%=path%>/message">在线留言</a>

@@ -19,11 +19,7 @@
     <div class="warp_left">
         <div class="warp_left_box">
             <h3>产品介绍</h3>
-            <ul>
-<c:forEach var="item" items="<%=SystemManage.getInstance().getArticleCategory()%>">
-    <li <c:if test="${e.catename eq item.catename}">class="active"</c:if>><a href="<%=path%>/article/${item.code}">${item.catename}</a></li>
-    </c:forEach>
-            </ul>
+
         </div>
     </div>
     <div class="warp_right">

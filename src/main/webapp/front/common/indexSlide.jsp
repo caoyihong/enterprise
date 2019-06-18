@@ -66,7 +66,7 @@
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <c:forEach var="item" items="<%=SystemManage.getInstance().getIndexImgs()%>">
-            <div class="swiper-slide"  style="background-image: url(<%=SystemManage.getInstance().getSystemSetting().getImageRootPath()%>/${item.pictureUrl});"></div>
+            <div class="swiper-slide"  style="background-image: url(<%=SystemManage.getInstance().getSystemSetting().getImageRootPath()%>/${item.pictureUrl});" onclick="toUrl('${item.link}')"></div>
         </c:forEach>
     </div>
     <!-- Add Pagination -->
@@ -90,7 +90,9 @@
         });
 
     });
-
+    function toUrl(url){
+        window.location.href=url;
+    }
 </script>
 
 

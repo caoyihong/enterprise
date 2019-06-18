@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,6 +60,17 @@ public class ServiceAction extends BaseController<Service>{
     @Override
     public String deletes(HttpServletRequest request, String[] ids, @ModelAttribute("e") Service service, RedirectAttributes flushAttrs) throws Exception {
         getService().deletes(ids);
+        frontCache.loadService();
+        addMessage(flushAttrs,"操作成功！");
+        return "redirect:selectList";
+    }
+
+    /**
+     * 添加删除方法
+     */
+    @RequestMapping(value="delete",method = RequestMethod.GET)
+    public String delete(HttpServletRequest request, String id, @ModelAttribute("e") Service service, RedirectAttributes flushAttrs) throws Exception {
+        getService().deletes(new String[]{id});
         frontCache.loadService();
         addMessage(flushAttrs,"操作成功！");
         return "redirect:selectList";

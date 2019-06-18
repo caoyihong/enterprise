@@ -17,7 +17,7 @@
 <div class="warp_main">
     <div class="warp_left">
         <div class="warp_left_box">
-            <h3>服务领域</h3>
+            <h3>公司动态</h3>
             <ul>
                 <c:forEach var="item" items="<%=SystemManage.getInstance().getService()%>">
                     <li <c:if test="${!empty id && id eq item.id}">class="active"</c:if> ><a href="<%=path%>/service/${item.id}">${item.title}</a></li>
@@ -29,7 +29,7 @@
         <div class="breadcrumb">
             <a href="<%=path%>/index">首页</a>
             >
-            <a href="<%=path%>/service">服务领域</a>
+            <a href="<%=path%>/service">公司动态</a>
             <%
                 String id = (String)request.getAttribute("id");
                     for (Service ac : SystemManage.getInstance().getService()) {

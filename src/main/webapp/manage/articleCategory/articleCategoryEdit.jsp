@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="/manage/system/pageBase.jsp" %>
-<%@ page info="文章分类" %>
+<%@ page info="产品分类" %>
 
 <form action="<%=path %>/manage/articleCategory" name="form" id="form" method="post">
     <div style="height:auto!important;height:550px;min-height:550px;">

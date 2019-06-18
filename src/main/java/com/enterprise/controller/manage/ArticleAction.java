@@ -1,12 +1,18 @@
 package com.enterprise.controller.manage;
 
+import com.enterprise.entity.Service;
 import com.enterprise.service.Services;
 import com.enterprise.entity.Article;
 import com.enterprise.service.ArticleService;
 import com.enterprise.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 文章管理Action
@@ -29,6 +35,14 @@ public class ArticleAction extends BaseController<Article>{
         super.page_toEdit = page_toEdit;
         super.page_toAdd = page_toAdd;
     }
-
+    /**
+     * 添加删除方法
+     */
+    @RequestMapping(value="delete",method = RequestMethod.GET)
+    public String delete(HttpServletRequest request, String id, @ModelAttribute("e") Service service, RedirectAttributes flushAttrs) throws Exception {
+        getService().deletes(new String[]{id});
+        addMessage(flushAttrs,"操作成功！");
+        return "redirect:selectList";
+    }
 
 }
